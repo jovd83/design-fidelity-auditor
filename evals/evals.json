@@ -1,0 +1,54 @@
+{
+  "skill_name": "design-fidelity-auditor",
+  "version": "2.0.0",
+  "evals": [
+    {
+      "id": "hex-and-spacing-drift",
+      "eval_name": "Detect hardcoded hex and non-token spacing in shared primitive",
+      "prompt": "Audit this CSS against the documented design system. CSS: '.button { background-color: #ff4500; font-size: 16px; padding: 12px; border-radius: 4px; }' Design system: '--color-primary: #3b82f6; --spacing-md: 8px; --spacing-lg: 16px; --font-size-body: 16px; --radius-sm: 4px'. Rules: shared primitives must use semantic color tokens and documented spacing tokens.",
+      "expected_output": [
+        "Flags hardcoded hex color as a design-system violation",
+        "Flags padding 12px as spacing-scale drift",
+        "Does not flag font-size 16px or border-radius 4px as violations given the provided authority",
+        "Recommends semantic token adoption as the primary remediation"
+      ],
+      "files": []
+    },
+    {
+      "id": "tailwind-arbitrary-values",
+      "eval_name": "Detect arbitrary Tailwind values that bypass tokens",
+      "prompt": "Review this React component against a tokenized Tailwind system. Component: '<button className=\"bg-[#1F6FEB] px-[10px] py-2 rounded-md text-sm hover:bg-[#1959bc]\">Save</button>' Design authority: colors must come from theme classes, spacing must use the 4px scale, and shared controls should avoid arbitrary bracket values unless explicitly approved.",
+      "expected_output": [
+        "Flags arbitrary background values as token bypasses",
+        "Flags px-[10px] as spacing drift",
+        "Treats py-2 and text-sm as potentially aligned rather than automatically wrong",
+        "Uses fileless evidence language when line numbers are unavailable"
+      ],
+      "files": []
+    },
+    {
+      "id": "partial-design-authority",
+      "eval_name": "Handles incomplete design references without false certainty",
+      "prompt": "Audit this card component. CSS: '.card { box-shadow: 0 4px 12px rgba(0,0,0,.15); border-radius: 12px; }'. Design reference: 'Use semantic colors and an 8px spacing grid.' No shadow or radius tokens are documented. What should the audit report say?",
+      "expected_output": [
+        "Does not invent missing shadow or radius tokens",
+        "Marks unsupported conclusions as unknown or lowers confidence",
+        "Explains the limitation of the design authority",
+        "Avoids calling the component fully compliant"
+      ],
+      "files": []
+    },
+    {
+      "id": "state-fidelity-review",
+      "eval_name": "Reviews interaction state fidelity separately from base styling",
+      "prompt": "Audit this button CSS. '.button { background: var(--color-primary); } .button:focus { outline: none; }'. Design system: focus-visible states must preserve keyboard visibility using approved focus ring styles. All primary colors already match tokens.",
+      "expected_output": [
+        "Acknowledges base color alignment",
+        "Flags removal of focus visibility as a state-fidelity problem",
+        "Classifies the issue independently from color token usage",
+        "Recommends using the approved focus treatment instead of removing outline without replacement"
+      ],
+      "files": []
+    }
+  ]
+}

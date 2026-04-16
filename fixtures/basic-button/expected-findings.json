@@ -1,0 +1,20 @@
+{
+  "required_sections": [
+    "## Audit Summary",
+    "## Design Authority Reviewed",
+    "## Scope and Evidence",
+    "## Fidelity Scorecard",
+    "## Findings",
+    "## Remediation Priorities",
+    "## Confidence and Unknowns",
+    "## Recommended Next Step"
+  ],
+  "expected_keywords": [
+    "#ff4500",
+    "padding",
+    "var(--color-primary)",
+    "spacing",
+    "High",
+    "Medium"
+  ]
+}
