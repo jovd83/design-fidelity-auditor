@@ -5,7 +5,7 @@ license: MIT
 compatibility: Requires file-reading support. Works best in agents with shell access for fast repository inspection and line-level evidence collection.
 metadata:
   author: OpenAI Codex
-  version: "2.1.0"
+  version: 2.1.0
   maturity: stable
   dispatcher-category: design
   dispatcher-capabilities: token-audit, design-system-compliance, drift-detection, remediation-planning, ui-governance
