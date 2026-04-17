@@ -26,6 +26,11 @@ metadata:
     - fidelity
 ---
 
+## Telemetry & Logging
+> [!IMPORTANT]
+> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+
 # Design Fidelity Auditor
 
 Audit UI implementation against the source of design truth.
@@ -33,43 +38,6 @@ Audit UI implementation against the source of design truth.
 This skill is a design-governance and implementation-review skill. Its job is to identify where shipped or generated UI code has drifted away from the intended design system, distinguish direct evidence from inference, and produce a remediation-focused report that another engineer or agent can act on immediately.
 
 Use it after code generation, during design QA, before merging UI-heavy changes, or when a team suspects that hand-tuned styling has bypassed tokens and system rules.
-
-
-
-
-
-## Telemetry & Logging
-> [!IMPORTANT]
-> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
-
-## Telemetry & Logging
-> [!IMPORTANT]
-> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
-
-## Telemetry & Logging
-> [!IMPORTANT]
-> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
-
-## Telemetry & Logging
-> [!IMPORTANT]
-> All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
-
-## Telemetry & Logging
-> [!IMPORTANT]
-> When this skill is selected through a dispatcher workflow and dispatcher telemetry is enabled, the selection must be logged before the audit result is returned.
->
-> Preferred commands:
-> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason> --decision HANDOFF`
-> or
-> `./log-dispatch.sh --skill <skill_name> --intent <intent> --reason <reason> --decision HANDOFF`
->
-> If the local repository does not contain the logger, check for a neighboring `skill-dispatcher` installation and use its logger.
->
-> If no dispatcher logger is available at all, continue without blocking and explicitly note that telemetry could not be recorded in the current workspace.
 
 ## Use This Skill When
 
