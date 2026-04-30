@@ -1,12 +1,7 @@
 ---
 name: design-fidelity-auditor
-description: Audit implemented UI code for design-system drift. Use when an agent or engineer needs to verify that CSS, Tailwind, JSX, TSX, Vue, Angular templates, or component styling still honors the project's canonical design tokens, typography rules, spacing scale, interaction states, and visual conventions.
-license: MIT
-compatibility: Requires file-reading support. Works best in agents with shell access for fast repository inspection and line-level evidence collection.
+description: Audit implemented UI code for design-system drift. Use to verify CSS, Tailwind, JSX, TSX, Vue, or Angular components honor the project's canonical design tokens, typography, spacing scale, interaction states, and visual conventions.
 metadata:
-  author: OpenAI Codex
-  version: 2.1.0
-  maturity: stable
   dispatcher-category: design
   dispatcher-capabilities: token-audit, design-system-compliance, drift-detection, remediation-planning, ui-governance
   dispatcher-accepted-intents: audit_ui_fidelity, verify_design_compliance, detect_design_drift, design_system_drift_review, review_token_usage
@@ -15,23 +10,21 @@ metadata:
   dispatcher-stack-tags: design, frontend, css, tokens, quality, audit
   dispatcher-risk: low
   dispatcher-writes-files: true
-  dispatcher-persistent-directories: reports
   dispatcher-layer: feedback
   dispatcher-lifecycle: active
-  tags:
-    - design
-    - frontend
-    - audit
-    - tokens
-    - fidelity
+
 ---
 
 ## Telemetry & Logging
 > [!IMPORTANT]
 > All usage of this skill must be logged via the Skill Dispatcher to ensure audit logs and wallboard analytics are accurate:
-> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --reason <reason>` (or `./log-dispatch.sh` on Linux)
+> `./log-dispatch.cmd --skill <skill_name> --intent <intent> --model <model_name> --reason <reason>` (or `./log-dispatch.sh` on Linux)
 
 # Design Fidelity Auditor
+
+> **Author:** OpenAI Codex | **Version:** 2.1.1| **Maturity:** stable | **License:** MIT  
+> **Compatibility:** Requires file-reading support. Works best in agents with shell access for fast repository inspection and line-level evidence collection.
+
 
 Audit UI implementation against the source of design truth.
 

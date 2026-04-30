@@ -12,3 +12,9 @@
 - rewrote the skill into a production-grade audit contract
 - added templates, examples, fixtures, evals, validation, and scoring utilities
 - added GitHub-ready packaging with README, LICENSE, and `.gitignore`
+
+## [2.1.1] - 2026-04-30
+
+### Changed
+- Trim `SKILL.md` frontmatter to fit the 1000-character dispatcher limit (description trim, migrate non-dispatcher fields to body).
+
